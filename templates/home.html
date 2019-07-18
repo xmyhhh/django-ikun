@@ -1,0 +1,62 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+        <div class="col-sm-12">
+          <div class="widget-head-color-box navy-bg p-lg">
+            <div class="row" style="display:flex;flex-direction: row;justify-content: center;">
+              <div class="col-lg-4" style="display: flex;flex-direction: column;justify-content: center; align-items: center;">
+                <div class="m-b-md">
+                  <h1 class="font-bold no-margins"> 蔡徐坤 </h1>
+                </div>
+                <img src="/static/img/ikun.jpg" class="rounded-circle circle-border m-b-md" alt="profile" style="width:100px;height:100px;">
+                <div> <span>100+ 微博粉丝</span> | <span>350+ 浏览量</span> | <span>610+ 鲜花</span> </div>
+              </div>
+              <div class="col-lg-8" style="height: 500px; display: flex;flex-direction: column;justify-content: center;align-items: center；">
+                <h1><strong>大家好我是蔡徐坤</strong></h1>
+                <h2>唱跳rap篮球</h2>
+              </div>
+            </div>
+          </div>
+          <div class="widget-text-box">
+            <h4 class="media-heading">格言</h4>
+            <p>大家好，我是练习长达两年半的练习生蔡徐坤，我喜欢唱 跳 rap 篮球</p>
+            <div class="text-right"> <a href=""  class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a> <a href="" class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a> </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin:20px 0;">
+        <div class="ibox" style="width: 100%;">
+          <div class="ibox-title">
+            <h5>我的文章</h5>
+          </div>
+
+        <div class="nav nav-pills">
+            {% for i in categorys %}
+                <li><a href="">{{ i.name }}</a></li>
+            {% empty %}
+                <li><a href="/polls/index/">旅游文章</a></li>
+                <li><a href="">前端杂记</a></li>
+            {% endfor %}</div>
+              {% for i in articles %}
+          <div class="ibox-content" style="display: flex;flex-direction: row;"> <img alt="jpg" src="/media/{{ i.img }}">
+            <div style="margin: 30px;">
+              <h2>{{ i.title }}</h2>
+              <h3>{{ i.category.name }}</h3>
+              <p>{{ i.desc }} </p>
+                <a href="/polls/detail/?id={{ i.id }}" class="continue">继续阅读</a>
+            </div>
+          </div>
+            {% endfor %}
+          <ul class="pagination" style="margin: 0 43%;">
+            <li><a href="#">&laquo;</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li class="disabled"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+        </div>
+      </div>
+{% endblock %}

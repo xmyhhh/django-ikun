@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+      <div class="row" style="margin:20px 0;">
+        <div class="ibox" style="width: 100%;">
+          <div class="ibox-title">
+            <h5>我的文章</h5>
+          </div>
+
+        <div class="nav nav-pills">
+            {% for i in categorys %}
+                <li><a href="">{{ i.name }}</a></li>
+            {% empty %}
+                <li><a href="/polls/index/">旅游文章</a></li>
+                <li><a href="">前端杂记</a></li>
+            {% endfor %}</div>
+              {% for i in articles %}
+          <div class="ibox-content" style="display: flex;flex-direction: row;"> <img alt="jpg" src="/static/img/sing.jpg">
+            <div style="margin: 30px;">
+              <h2>{{ i.title }}</h2>
+              <h3>{{ i.category.name }}</h3>
+              <p>{{ i.desc }} </p>
+                <a href="/polls/detail/?id={{ i.id }}" class="continue">继续阅读</a>
+            </div>
+          </div>
+            {% endfor %}
+          <ul class="pagination" style="margin: 0 43%;">
+            <li><a href="#">&laquo;</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li class="disabled"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+        </div>
+      </div>
+{% endblock %}
+
